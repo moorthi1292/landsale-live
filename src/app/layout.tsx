@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import "@/styles/icomoon.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
+import Header from "./header/page";
+import Footer from "./footer/page";
+
+//import Footer from "./footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,10 +30,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased body`}>
+        <div id="wrapper">
+          <div id="pagee" className="clearfix">
+            <Header />
+            {children}
+            <Footer />
+          </div>
+        </div>
       </body>
     </html>
   );
